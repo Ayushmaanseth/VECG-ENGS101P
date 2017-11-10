@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>VECG</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Virtual Environments and Graphics</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">What is Rendering?</a>
+ 			<li class="nav-item">
+              <div class="dropdown">
+                <a class="dropbtn">OTHER RESEARCHES</a>
+                <div class="dropdown-content">
+                  <a href="../Su/index.html">Geometry and scanning</a>
+                  <a href="../Ay/index.html">Mixed reality</a>
+                  <a href="post.html">Rendering</a>
+                  <a href="../Li/introduction.html">Presence</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">[1]
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>What is Rendering?</h1>
+              <h2 class="subheading">Finalizing the 3D image</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>If you're new to 3D, you might have wondered what exactly is rendering? To casual fans and folks who are new to 3D production, the concept can initially seem as cryptic and unapproachable as <a style = "color: blue" href="https://en.wikipedia.org/wiki/Hieroglyph">hieroglyphics</a>.[1][2]</p>
+
+              <p>While the sophisticated math and science behind rendering is far beyond the scope of this article, the process plays a crucial role in the computer graphics development cycle. We won’t go into too much depth here, but no discussion of the CG pipeline would be complete without at least mentioning the tools and methods for rendering 3D images.</p>
+
+               <h2 class="section-heading">Like Developing Film:</h2>
+              <p>Rendering is the most technically complex aspect of 3D production, but it can actually be understood quite easily in the context of an analogy: Much like a film photographer must develop and print his photos before they can be displayed, computer graphics professionals are burdened a similar necessity.</p>
+
+              <p>When an artist is working on a 3D scene, the models he manipulates are actually a mathematical representation of points and surfaces (more specifically, vertices and polygons) in three-dimensional space.</p>
+
+              <p>The term rendering refers to the calculations performed by a 3D software package’s render engine to translate the scene from a mathematical approximation to a finalized 2D image. During the process, the entire scene’s spatial, textural, and lighting information are combined to determine the color value of each pixel in the flattened image.</p>
+
+              <h2 class="section-heading">Two Types of Rendering:</h2>
+              <p>There are two major types of rendering, their chief difference being the speed at which images are computed and finalized.</p>
+
+              <p>1.<a style = "color: orange">Real-Time Rendering</a>: Real-Time Rendering is used most prominently in gaming and interactive graphics, where images must be computed from 3D information at an incredibly rapid pace.</p>
+
+              <p>Interactivity: Because it is impossible to predict exactly how a player will interact with the game environment, images must be rendered in “real-time” as the action unfolds.</p>
+              <p>Speed Matters: In order for motion to appear fluid, a minimum of 18 - 20 frames per second must be rendered to the screen. Anything less than this and action will appear choppy.</p>
+              <p>The methods: <strong>Real-time rendering is drastically improved by dedicated graphics hardware (GPUs), and by pre-compiling as much information as possible.</strong> A great deal of a game environment’s lighting information is pre-computed and “baked” directly into the environment’s texture files to improve render speed.</p>
+              <p>2.<a style = "color: orange">Offline or Pre-Rendering</a>: Offline rendering is used in situations where speed is less of an issue, with calculations typically performed using multi-core CPUs rather than dedicated graphics hardware.</p>
+
+              <p>Predictability: Offline rendering is seen most frequently in animation and effects work where visual complexity and photorealism are held to a much higher standard. <b>
+              Since there is no unpredictability as to what will appear in each frame, large studios have been known to dedicate up to 90 hours render time to individual frames.</b></p>
+              <p>Photorealism: Because offline rendering occurs within an open-ended time-frame, higher levels of photorealism can be achieved than with real-time rendering. Characters, environments, and their associated textures and lights are typically allowed higher polygon counts, and 4k (or higher) resolution texture files.</p>
+             <iframe
+             width="690" height="380" 
+             src="https://www.youtube.com/embed/TkF4U4mNED4">
+             </iframe>
+             [3]Rendering in Games
+              <h2 class="section-heading">Rendering Techniques:</h2>
+              <p>There are three major computational techniques used for most rendering. Each has its own set of advantages and disadvantages, making all three viable options in certain situations.</p>
+
+              <p>1.Scanline (or rasterization): Scanline rendering is used when speed is a necessity, which makes it the technique of choice for real-time rendering and interactive graphics. Instead of rendering an image pixel-by-pixel, scanline renderers compute on a polygon by polygon basis. Scanline techniques used in conjunction with precomputed (baked) lighting can achieve speeds of 60 frames per second or better on a high-end graphics card.</p>
+              <p>2.Raytracing: In raytracing, for every pixel in the scene, one (or more) ray(s) of light are traced from the camera to the nearest 3D object. The light ray is then passed through a set number of "bounces", which can include reflection or refraction depending on the materials in the 3D scene. The color of each pixel is computed algorithmically based on the light ray's interaction with objects in its traced path. Raytracing is capable of greater photorealism than scanline but is exponentially slower.</p>
+              <p>3.Radiosity: Unlike raytracing, radiosity is calculated independent of the camera, and is surface oriented rather than pixel-by-pixel. The primary function of radiosity is to more accurately simulate surface color by accounting for indirect illumination (bounced diffuse light). Radiosity is typically characterized by soft graduated shadows and color bleeding, where light from brightly colored objects "bleeds" onto nearby surfaces.</p>
+              <p>In practice, radiosity and raytracing are often used in conjunction with one another, using the advantages of each system to achieve impressive levels of photorealism.</p>
+              <img src="img/dq.jpg" alt="[3]">
+              <p class="copyright text-muted">Rendering[4]</p>
+              <h2 class="section-heading">Rendering Software</h2>
+              <p>Although rendering relies on incredibly sophisticated calculations, today’s software provides easy to understand parameters that make it so an artist never needs to deal with the underlying mathematics. A render engine is included with every major 3D software suite, and most of them include material and lighting packages that make it possible to achieve stunning levels of photorealism.</p>
+
+              <h2 class="section-heading">The two most common render engines:</h2>
+              <p>1.Mental Ray – Packaged with Autodesk Maya. Mental Ray is incredibly versatile, relatively fast, and probably the most competent renderer for character images that need subsurface scattering. Mental ray uses a combination of raytracing and "global illumination" (radiosity).</p>
+               <img src="img/mentalray.jpg" alt="Mental Ray[4]" width="690" height="380">
+               <p class="copyright text-muted">Mental ray[5]
+              <p>2.V-Ray – You typically see V-Ray used in conjunction with 3DS Max—together the pair is absolutely unrivaled for architectural visualization and environment rendering. Chief advantages of VRay over its competitor are its lighting tools and extensive materials library for arch-viz.</p>
+              <img src="img/vray.png" alt="Vray[5]">
+              <p class="copyright text-muted">V-ray[6]</p>
+              <p>This was just a brief overview of the basics of what it means to render an image. It's a technical subject, but can be quite interesting when you really start to take a deeper look at some of the common techniques. </p>
+              <h2> Ongoing Research @UCL</h2>
+              <h3 style="text-align: center;color: orange"> "COMPREHENSIVE USE OF CURVATURE FOR ONLINE SURFACE RECONSTRUCTION"</h3>
+              <p> Interactive real-time scene acquisition from hand-held depth cameras has recently developed much momentum, enabling applications in ad-hoc object acquisition, augmented reality and other fields.<a style="color: green"> A key challenge to online reconstruction remains error accumulation in the reconstructed camera trajectory, due to drift-inducing instabilities in the range scan alignments of the underlying iterative-closest-point (ICP) algorithm. Various strategies have been proposed to mitigate that drift, including SIFT-based pre-alignment, color-based weighting of ICP pairs, stronger weighting of edge features, and so on.</a> <br>
+                <img src="img/img.jpg">
+                <br>
+                <br>In our work, we focus on surface curvature as a feature that is detectable on range scans alone and hence does not depend on accurate multi-sensor alignment. In contrast to previous work that took curvature into consideration, however, we treat curvature as an independent quantity that we consistently incorporate into every stage of the real-time reconstruction pipeline, including densely curvature-weighted ICP, range image fusion, local surface reconstruction, and rendering. Using multiple benchmark sequences, and in direct comparison to other state-of-the-art online acquisition systems, we show that our approach significantly reduces drift, both when analyzing individual pipeline stages in isolation, as well as seen across the online reconstruction pipeline as a whole.[7]
+                <br>
+                <br>
+                  Read more about this research <a href="http://reality.cs.ucl.ac.uk/projects/kinect/lefloch17comprehensive.html" style="color: red"> HERE</a> </p>
+
+              <h2 class="sectiom-heading">Reference:</h2>
+              <p>[1]Pesantez, F. (2017). [online] Available at: https://www.linkedin.com/pulse/ue4-lighting-lookdev-felipe-pesantez [Accessed 7 Nov. 2017].</p>
+              <p>[2]Slick, J. (2017). What is Rendering?. [online] Lifewire. Available at: https://www.lifewire.com/what-is-rendering-1954 [Accessed 7 Nov. 2017].</p>
+              <p>[3]YouTube. (2017). Borderlands 3 Unreal Engine 4 Tech Demo - GDC 2017. [online] Available at: https://www.youtube.com/watch?v=TkF4U4mNED4 [Accessed 7 Nov. 2017].</p>
+              <p>[4]Blogs.jccc.edu. (2017)[online] Available at: http://blogs.jccc.edu/lcline/files/2012/04/draperies.jpg [Accessed 7 Nov. 2017].</p>
+              <p>[5]DeviantArt. (2017). day interior mental ray. [online] Available at: https://pujaantarbangsa.deviantart.com/art/day-interior-mental-ray-106838367 [Accessed 7 Nov. 2017].</p>
+              <p>[6] Vray.com. (2017)[online] Available at: https://www.vray.com/media/products/vray_for_sketchup/vray_3_for_sketchup_clipper.png [Accessed 7 Nov. 2017].</p>
+              <p>[7] http://reality.cs.ucl.ac.uk/projects/kinect/lefloch17comprehensive.html</p>
+
+              <a href="http://spaceipsum.com/"></a>
+              <a href="https://www.flickr.com/photos/nasacommons/"></a></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Group15 2017</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
